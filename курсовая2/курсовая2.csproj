@@ -100,6 +100,90 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Билеты.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Билеты.Designer.cs">
+      <DependentUpon>Билеты.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Добавить_Билет.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Добавить_Билет.Designer.cs">
+      <DependentUpon>Добавить_Билет.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Добавить_Маршрут.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Добавить_Маршрут.Designer.cs">
+      <DependentUpon>Добавить_Маршрут.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Добавить_Места.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Добавить_Места.Designer.cs">
+      <DependentUpon>Добавить_Места.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Добавить_Пассажира.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Добавить_Пассажира.Designer.cs">
+      <DependentUpon>Добавить_Пассажира.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Добавить_Тариф.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Добавить_Тариф.Designer.cs">
+      <DependentUpon>Добавить_Тариф.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изменить_Билет.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изменить_Билет.Designer.cs">
+      <DependentUpon>Изменить_Билет.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изменить_Маршрут.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изменить_Маршрут.Designer.cs">
+      <DependentUpon>Изменить_Маршрут.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изменить_Места.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изменить_Места.Designer.cs">
+      <DependentUpon>Изменить_Места.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изменить_Пассажира.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изменить_Пассажира.Designer.cs">
+      <DependentUpon>Изменить_Пассажира.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Изменить_Тариф.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Изменить_Тариф.Designer.cs">
+      <DependentUpon>Изменить_Тариф.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Маршруты.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Маршруты.Designer.cs">
+      <DependentUpon>Маршруты.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Места.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Места.Designer.cs">
+      <DependentUpon>Места.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Пассажиры.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Пассажиры.Designer.cs">
+      <DependentUpon>Пассажиры.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs">
@@ -113,6 +197,66 @@
     </Compile>
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Посмотреть_Маршрут.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Посмотреть_Маршрут.Designer.cs">
+      <DependentUpon>Посмотреть_Маршрут.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Посмотреть_Места.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Посмотреть_Места.Designer.cs">
+      <DependentUpon>Посмотреть_Места.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Посмотреть_Пассажира.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Посмотреть_Пассажира.Designer.cs">
+      <DependentUpon>Посмотреть_Пассажира.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Посмотреть_Тарифы.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Посмотреть_Тарифы.Designer.cs">
+      <DependentUpon>Посмотреть_Тарифы.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Тарифы.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Тарифы.Designer.cs">
+      <DependentUpon>Тарифы.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Удалить_Билет.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Удалить_Билет.Designer.cs">
+      <DependentUpon>Удалить_Билет.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Удалить_Маршрут.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Удалить_Маршрут.Designer.cs">
+      <DependentUpon>Удалить_Маршрут.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Удалить_Место.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Удалить_Место.Designer.cs">
+      <DependentUpon>Удалить_Место.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Удалить_Пассажира.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Удалить_Пассажира.Designer.cs">
+      <DependentUpon>Удалить_Пассажира.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Удалить_Тариф.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Удалить_Тариф.Designer.cs">
+      <DependentUpon>Удалить_Тариф.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -131,6 +275,78 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View.resx">
       <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Билеты.resx">
+      <DependentUpon>Билеты.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Добавить_Билет.resx">
+      <DependentUpon>Добавить_Билет.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Добавить_Маршрут.resx">
+      <DependentUpon>Добавить_Маршрут.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Добавить_Места.resx">
+      <DependentUpon>Добавить_Места.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Добавить_Пассажира.resx">
+      <DependentUpon>Добавить_Пассажира.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Добавить_Тариф.resx">
+      <DependentUpon>Добавить_Тариф.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изменить_Билет.resx">
+      <DependentUpon>Изменить_Билет.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изменить_Маршрут.resx">
+      <DependentUpon>Изменить_Маршрут.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изменить_Места.resx">
+      <DependentUpon>Изменить_Места.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изменить_Пассажира.resx">
+      <DependentUpon>Изменить_Пассажира.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Изменить_Тариф.resx">
+      <DependentUpon>Изменить_Тариф.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Маршруты.resx">
+      <DependentUpon>Маршруты.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Места.resx">
+      <DependentUpon>Места.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Пассажиры.resx">
+      <DependentUpon>Пассажиры.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Посмотреть_Маршрут.resx">
+      <DependentUpon>Посмотреть_Маршрут.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Посмотреть_Места.resx">
+      <DependentUpon>Посмотреть_Места.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Посмотреть_Пассажира.resx">
+      <DependentUpon>Посмотреть_Пассажира.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Посмотреть_Тарифы.resx">
+      <DependentUpon>Посмотреть_Тарифы.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Тарифы.resx">
+      <DependentUpon>Тарифы.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Удалить_Билет.resx">
+      <DependentUpon>Удалить_Билет.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Удалить_Маршрут.resx">
+      <DependentUpon>Удалить_Маршрут.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Удалить_Место.resx">
+      <DependentUpon>Удалить_Место.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Удалить_Пассажира.resx">
+      <DependentUpon>Удалить_Пассажира.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Удалить_Тариф.resx">
+      <DependentUpon>Удалить_Тариф.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
