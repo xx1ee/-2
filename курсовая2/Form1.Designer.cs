@@ -40,6 +40,10 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,7 +149,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(987, 13);
+            this.button10.Location = new System.Drawing.Point(1753, 19);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(172, 76);
             this.button10.TabIndex = 10;
@@ -155,7 +159,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(1315, 24);
+            this.button11.Location = new System.Drawing.Point(2036, 25);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(187, 65);
             this.button11.TabIndex = 11;
@@ -163,11 +167,53 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(930, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(238, 76);
+            this.button12.TabIndex = 12;
+            this.button12.Text = "подзапрос3";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(2370, 25);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(369, 65);
+            this.button13.TabIndex = 13;
+            this.button13.Text = "курсор на тариф";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(1253, 13);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(169, 76);
+            this.button14.TabIndex = 14;
+            this.button14.Text = "scalar";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1467, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 44);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2802, 1056);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
@@ -185,6 +231,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -202,6 +249,10 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

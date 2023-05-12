@@ -16,7 +16,7 @@ namespace курсовая2
         string tb1;
         string tb2;
         string tb3;
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+ Authorized_user.name + "; Password=English56; Database=Zhd_vokzal");
         public Добавить_Тариф()
         {
             InitializeComponent();
@@ -51,30 +51,35 @@ namespace курсовая2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (tb3.Trim().Equals("Плацкарт"))
+            try
             {
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",1);", conn);
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                cmd.Dispose();
-                conn.Close();
+                if (tb3.Trim().Equals("Плацкарт"))
+                {
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",1);", conn);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    cmd.Dispose();
+                    conn.Close();
+                }
+                if (tb3.Trim().Equals("Купе"))
+                {
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",2);", conn);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    cmd.Dispose();
+                    conn.Close();
+                }
+                if (tb3.Trim().Equals("СВ"))
+                {
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",3);", conn);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    cmd.Dispose();
+                    conn.Close();
+                }
             }
-            if (tb3.Trim().Equals("Купе"))
-            {
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",2);", conn);
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                cmd.Dispose();
-                conn.Close();
-            }
-            if (tb3.Trim().Equals("СВ"))
-            {
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_tarif(" + tb1 + "," + tb2 + ",3);", conn);
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                cmd.Dispose();
-                conn.Close();
-            }
+            catch (Npgsql.PostgresException ex) { conn.Close(); }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

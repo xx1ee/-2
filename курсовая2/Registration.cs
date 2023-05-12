@@ -21,8 +21,9 @@ namespace курсовая2
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            if (textBox1.Text.Equals("postgres") && textBox2.Text.Equals("English56"))
+            if ((textBox1.Text.Equals("postgres") || textBox1.Text.Equals("user2")) && (textBox2.Text.Equals("English56")))
             {
+                Authorized_user a = new Authorized_user(textBox1.Text, textBox2.Text);
                 this.Hide();
                 Form1 frm = new Form1(textBox1.Text, textBox2.Text);
                 frm.ShowDialog();

@@ -14,7 +14,7 @@ namespace курсовая2
 {
     public partial class Изменить_Билет : Form
     {
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+ Authorized_user.name + "; Password=English56; Database=Zhd_vokzal");
         public Посмотреть_Маршрут m = new Посмотреть_Маршрут();
         public Посмотреть_Места mesta = new Посмотреть_Места();
         public Посмотреть_Пассажира pass = new Посмотреть_Пассажира();
@@ -74,44 +74,48 @@ namespace курсовая2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var bil_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
-            if (mesta.cell_mesto_id != null)
+            try
             {
-                
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_pl("+ mesta.cell_mesto_id.Value+ ","+bil_id.Value+")", conn);
-                Console.WriteLine(@"select * from vokzal.update_bilet_pl(" + mesta.cell_mesto_id.Value + "," + bil_id.Value + ")");
-                //Thread.Sleep(100000);
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                conn.Close();
-            }
-            if (m.cell_marsh_id != null)
-            {
-                
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_marsh(" + m.cell_marsh_id.Value + "," + bil_id.Value + ")", conn);
+                var bil_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
+                if (mesta.cell_mesto_id != null)
+                {
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                conn.Close();
-            }
-            if (pass.cell_pass_id != null)
-            {
-              
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_pass(" + pass.cell_pass_id.Value + "," + bil_id.Value + ")", conn);
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_pl(" + mesta.cell_mesto_id.Value + "," + bil_id.Value + ")", conn);
+                    Console.WriteLine(@"select * from vokzal.update_bilet_pl(" + mesta.cell_mesto_id.Value + "," + bil_id.Value + ")");
+                    //Thread.Sleep(100000);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    conn.Close();
+                }
+                if (m.cell_marsh_id != null)
+                {
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                conn.Close();
-            }
-            if (tarif.cell_tar_id != null)
-            {
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_marsh(" + m.cell_marsh_id.Value + "," + bil_id.Value + ")", conn);
 
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_tar(" + tarif.cell_tar_id.Value + "," + bil_id.Value + ")", conn);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    conn.Close();
+                }
+                if (pass.cell_pass_id != null)
+                {
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                conn.Close();
-            }
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_pass(" + pass.cell_pass_id.Value + "," + bil_id.Value + ")", conn);
+
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    conn.Close();
+                }
+                if (tarif.cell_tar_id != null)
+                {
+
+                    conn.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_bilet_tar(" + tarif.cell_tar_id.Value + "," + bil_id.Value + ")", conn);
+
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    conn.Close();
+                }
+            } catch (Npgsql.PostgresException ex) { conn.Close(); }
+            
         }
 
         private void button6_Click(object sender, EventArgs e)

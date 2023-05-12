@@ -14,7 +14,7 @@ namespace курсовая2
 {
     public partial class Добавить_Билет : Form
     {
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+ Authorized_user.name + "; Password=English56; Database=Zhd_vokzal");
         public Посмотреть_Маршрут m = new Посмотреть_Маршрут();
         public Посмотреть_Места mesta = new Посмотреть_Места();
         public Посмотреть_Пассажира pass = new Посмотреть_Пассажира();
@@ -72,17 +72,21 @@ namespace курсовая2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.insert_bilet(" + mesta.cell_mesto_id.Value + "," + pass.cell_pass_id.Value + "," + tarif.cell_tar_id.Value + "," + m.cell_marsh_id.Value + ");", conn);
-            //Console.WriteLine(@"select * from vokzal.insert_bilet(" + m.cell_marsh_id + "," + mesta.cell_mesto_id + "," + pass.cell_pass_id + "," + tarif.cell_tar_id + ");");
-            //Thread.Sleep(100000);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            cmd.Dispose();
+                NpgsqlCommand cmd = new NpgsqlCommand(@"call vokzal.insert_bilett(" + mesta.cell_mesto_id.Value + "," + pass.cell_pass_id.Value + "," + tarif.cell_tar_id.Value + "," + m.cell_marsh_id.Value + ");", conn);
+                //Console.WriteLine(@"select * from vokzal.insert_bilet(" + m.cell_marsh_id + "," + mesta.cell_mesto_id + "," + pass.cell_pass_id + "," + tarif.cell_tar_id + ");");
+                //Thread.Sleep(100000);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
 
 
 
-            conn.Close();
+                conn.Close();
+            } catch (Npgsql.PostgresException ex) { conn.Close(); }
+   
         }
 
         private void button6_Click(object sender, EventArgs e)

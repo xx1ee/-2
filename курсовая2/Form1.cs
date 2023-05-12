@@ -15,6 +15,7 @@ namespace курсовая2
     {
         public string userid;
         public string password;
+        public string s1;
         public Form1(string userid, string password)
         {
             this.userid = userid;
@@ -25,7 +26,7 @@ namespace курсовая2
         private void connection()
         {
             DataTable dt = new DataTable();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+userid + "; Password="+password+"; Database=Zhd_vokzal");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+Authorized_user.name + "; Password="+ Authorized_user.password + "; Database=Zhd_vokzal");
           
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.case_func1();", conn);
@@ -84,7 +85,7 @@ namespace курсовая2
         private void button8_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + userid + "; Password=" + password + "; Database=Zhd_vokzal");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
 
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.korel_podzap2();", conn);
@@ -100,7 +101,7 @@ namespace курсовая2
         private void button9_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + userid + "; Password=" + password + "; Database=Zhd_vokzal");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
 
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.korel_podzap();", conn);
@@ -116,7 +117,7 @@ namespace курсовая2
         private void button10_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + userid + "; Password=" + password + "; Database=Zhd_vokzal");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
 
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.get_total_price_for_female_passengers();", conn);
@@ -132,7 +133,7 @@ namespace курсовая2
         private void button11_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + userid + "; Password=" + password + "; Database=Zhd_vokzal");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
 
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.kuda_ehat_dolshe_sutok();", conn);
@@ -143,6 +144,59 @@ namespace курсовая2
             dataGridView1.DataSource = dt;
             cmd.Dispose();
             conn.Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
+
+            conn.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("select (select count(*) from vokzal.bilet_predstav) as Количество_Билетов,(select sum(Стоимость) from vokzal.bilet_predstav) as Всего_Собрано,(select avg(Стоимость) from vokzal.bilet_predstav) as Средняя_Стоимость_Билета from vokzal.bilet_predstav group by Количество_Билетов; ", conn);
+
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+            dt.Load(reader);
+            dataGridView1.DataSource = dt;
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
+
+            conn.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("call vokzal.cursor_tar()", conn);
+
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+            dt.Load(reader);
+            dataGridView1.DataSource = dt;
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=" + Authorized_user.name + "; Password=" + Authorized_user.password + "; Database=Zhd_vokzal");
+
+            conn.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("select * from vokzal.samy_dorogoy_bilet_fio('"+s1+"')", conn);
+
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+            dt.Load(reader);
+            dataGridView1.DataSource = dt;
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            s1 = textBox1.Text;
         }
     }
 }

@@ -21,7 +21,8 @@ namespace курсовая2
             DataTable dt = new DataTable();
 
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.""Tarif"" order by tarif_id asc", conn);
+          
+            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.tarif_predstav order by tar_id asc", conn);
 
             NpgsqlDataReader reader = cmd.ExecuteReader();
 
@@ -34,15 +35,18 @@ namespace курсовая2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
+            try
+            {
+                DataTable dt = new DataTable();
 
-            conn.Open();
-            DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.delete_tar_by_id(" + cell_id.Value + ");", conn);
+                conn.Open();
+                DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
+                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.delete_tar_by_id(" + cell_id.Value + ");", conn);
 
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            cmd.Dispose();
-            conn.Close();
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
+                conn.Close();
+            } catch (Npgsql.PostgresException ex) { }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,7 +54,7 @@ namespace курсовая2
             DataTable dt = new DataTable();
 
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.""Tarif"" order by tarif_id asc", conn);
+            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.tarif_predstav order by tar_id asc", conn);
 
             NpgsqlDataReader reader = cmd.ExecuteReader();
 

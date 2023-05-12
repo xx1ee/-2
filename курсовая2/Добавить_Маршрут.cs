@@ -13,7 +13,7 @@ namespace курсовая2
 {
     public partial class Добавить_Маршрут : Form
     {
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+ Authorized_user.name + "; Password=English56; Database=Zhd_vokzal");
         public string tb1;
         public string tb2;
         public string tb3;
@@ -44,16 +44,21 @@ namespace курсовая2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_marshrut('" + tb1 + "','" + tb2 + "','" + tb3 + "','" + tb4 + "',"+tb5+");", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_marshrut('" + tb1 + "','" + tb2 + "','" + tb3 + "','" + tb4 + "'," + tb5 + ");", conn);
 
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            cmd.Dispose();
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
 
 
 
-            conn.Close();
+                conn.Close();
+            }
+            catch (Npgsql.PostgresException ex) { conn.Close(); }
+            
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)

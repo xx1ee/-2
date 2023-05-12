@@ -13,7 +13,7 @@ namespace курсовая2
 {
     public partial class Добавить_Места : Form
     {
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+ Authorized_user.name + "; Password=English56; Database=Zhd_vokzal");
         public string tb1;
         public string tb2;
         public string tb3;
@@ -36,15 +36,21 @@ namespace курсовая2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            
+            try
+            {
+                conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_place(" + tb1 + "," + tb2 + ",'" + tb3 + "');", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_place(" + tb1 + "," + tb2 + ",'" + tb3 + "');", conn);
 
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            cmd.Dispose();
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
 
 
 
+                
+            }
+            catch (Npgsql.PostgresException ex) { }
             conn.Close();
         }
 

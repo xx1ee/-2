@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorized_user.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

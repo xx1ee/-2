@@ -15,7 +15,7 @@ namespace курсовая2
 
     public partial class Добавить_Пассажира : Form
     {
-        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Password=English56; Database=Zhd_vokzal");
+        public NpgsqlConnection conn = new NpgsqlConnection("Server=localhost; Port=5432; User Id="+Authorized_user.name+"; Password=English56; Database=Zhd_vokzal");
         public string tb1;
         public string tb2;
         public string tb3;
@@ -39,19 +39,23 @@ namespace курсовая2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                conn.Open();
+
+                NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_passangers('" + tb1 + "','" + tb2 + "','" + tb3 + "','" + tb4 + "');", conn);
+                // Console.WriteLine(@"select * from vokzal.update_passangers('" + tb1 + "','" + tb2 + "','" + tb3 + "','" + tb4 + "');");
+                //Thread.Sleep(100000);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
+
+
+
+                conn.Close();
+            }
+            catch (Npgsql.PostgresException ex) { conn.Close(); }
+
             
-
-            conn.Open();
-            
-            NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.update_passangers('"+tb1+ "','"+tb2+ "','"+tb3+"','"+tb4+"');", conn);
-           // Console.WriteLine(@"select * from vokzal.update_passangers('" + tb1 + "','" + tb2 + "','" + tb3 + "','" + tb4 + "');");
-            //Thread.Sleep(100000);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            cmd.Dispose();
-
-        
-
-            conn.Close();
             
         }
 
