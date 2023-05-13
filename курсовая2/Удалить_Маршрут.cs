@@ -39,7 +39,7 @@ namespace курсовая2
                 DataTable dt = new DataTable();
 
                 conn.Open();
-                DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
+                DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1)].Cells[0];
                 NpgsqlCommand cmd = new NpgsqlCommand(@"select * from vokzal.delete_marsh_by_id(" + cell_id.Value + ");", conn);
 
                 NpgsqlDataReader reader = cmd.ExecuteReader();
@@ -49,9 +49,9 @@ namespace курсовая2
         }
         
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            s1 = textBox1.Text;
+            s1 = e.RowIndex.ToString();
         }
     }
 }

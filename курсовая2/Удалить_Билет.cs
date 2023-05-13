@@ -66,7 +66,7 @@ namespace курсовая2
                 DataTable dt = new DataTable();
 
                 conn.Open();
-                DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1) - 1].Cells[0];
+                DataGridViewCell cell_id = dataGridView1.Rows[Convert.ToInt32(s1)].Cells[0];
                 Console.WriteLine(s1);
                 Console.WriteLine(cell_id.Value);
                 //Thread.Sleep(100000);
@@ -79,9 +79,11 @@ namespace курсовая2
             conn.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+       
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            s1 = textBox1.Text;
+            s1 = e.RowIndex.ToString();
         }
     }
 }
